@@ -6,8 +6,8 @@ function [theta, J_history] = gradientDescentMulti(X, y, theta, alpha, num_iters
 % Initialize some useful values
 m = length(y); % number of training examples
 J_history = zeros(num_iters, 1);
-
-for iter = 1:num_iters
+n = size(X,2);
+for iter = 1:num_iters,
 
     % ====================== YOUR CODE HERE ======================
     % Instructions: Perform a single gradient step on the parameter vector
@@ -18,13 +18,9 @@ for iter = 1:num_iters
     %
 
 
-
-
-
-
-
-
-
+for i = 1:n,
+  theta(i) = theta(i) - X(:,i)' * (X*theta-y) * alpha / m;
+end
 
 
     % ============================================================
