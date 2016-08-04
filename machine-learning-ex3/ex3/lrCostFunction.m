@@ -41,9 +41,9 @@ J = 1/m*(log(h)*(-y)-log(1-h)*(1-y));
 
 grad = 1/m * ((h'-y)'*X)';
 
-J = J + lambda/(2*m)*sum(theta.^2);
+J = J + lambda/(2*m)*sum(theta(2:end).^2);
 
-grad = grad + lambda/m*theta;
+grad(2:end) = grad(2:end) + lambda/m*theta(2:end);
 
 
 
